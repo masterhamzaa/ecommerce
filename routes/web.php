@@ -32,23 +32,6 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 
 
 
-// Gestion des catégories
-
-// Gestion des produits
-
-// Gestion des clients
-
-// Gestion des commandes
-
-// Import
-
-// Export
-
-
-// Imprimer
-
-
-// Envoyer Emails
 
 
 
