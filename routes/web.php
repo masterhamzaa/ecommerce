@@ -10,7 +10,6 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 
 
-
 // ADMIN
 Route::get('Admin', [MasterController::class, 'adminview'])->name('adminview');
 
@@ -30,26 +29,15 @@ Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showRese
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 
-
-
-
-
-
-
-Route::get('/categorie/{id}', [MasterController::class,'Prod'])->name('cat.show');
-
 // Gestion Categories
+Route::get('/categorie/{id}', [MasterController::class, 'Prod'])->name('cat.show');
+Route::get('/Admin/GestionCategories', [MasterController::class, 'gestionCat'])->name("gestioncategories");
 
-
-Route::get('/Admin/GestionCategories', [MasterController::class,'gestionCat'])->name("gestioncategories");
-
-Route::get('/', [MasterController::class,'slash'])->name("home");
-
-
+Route::get('/', [MasterController::class, 'slash'])->name("home");
 
 
 // GESTION (ALL)
-Route::get('/Admin/{gestion}',  [MasterController::class,'Gestion'])->name('gestion');
+Route::get('/Admin/{gestion}',  [MasterController::class, 'Gestion'])->name('gestion');
 
 
 // EXPORT DATA EXCEL
@@ -58,14 +46,11 @@ Route::get('data', [MasterController::class, 'exportproduit'])->name('getdata');
 // IMPORT DATA CSV
 Route::post('putdata', [MasterController::class, 'importproduits'])->name('putdata');
 
-
 // CART GUEST
 Route::get('atcg', [MasterController::class, 'addtocartguest'])->name('addtocartguest');
 
-
 // ADD TO CART
 Route::get('atc', [MasterController::class, 'addtocart'])->name('addtocart');
-
 
 // CLIENT PRODUCT
 Route::get('client/products', [MasterController::class, 'cltproducts'])->name('cltproducts');
@@ -76,12 +61,11 @@ Route::get('client/carts', [MasterController::class, 'cltcart'])->name('cltcart'
 // PASS COMMANDE
 Route::get('client/commande/', [MasterController::class, 'commande'])->name('commande');
 
-
 //  COMMANDE  HISTORIE
 Route::get('client/commandes', [MasterController::class, 'cltcommande'])->name('cltcommande');
 
 // ANNULLER COMMANDE
-Route::get('/client/annuler/{commande}',  [MasterController::class,'annulercmd'])->name('annulercommande');
+Route::get('/client/annuler/{commande}',  [MasterController::class, 'annulercmd'])->name('annulercommande');
 
 // FACTURES
 Route::get('factures', [MasterController::class, 'generate'])->name('generate');
