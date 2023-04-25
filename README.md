@@ -1,6 +1,5 @@
 # Laravel Ecommerce project
 
-> Laravel sample website with content retrieving from [prismic.io](https://prismic.io)
 
 This project runs with Laravel version 10x.
 
