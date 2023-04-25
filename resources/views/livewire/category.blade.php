@@ -1,24 +1,24 @@
-<div >
+<div>
     <div class="col-md-12 mb-2">
         <div class="card">
             <div class="card-body">
-                @if(session()->has('success'))
+                @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible" role="alert">
                         {{ session()->get('success') }}
-                        <button  type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
-                          </button>
+                        </button>
                     </div>
                 @endif
-                @if(session()->has('error'))
+                @if (session()->has('error'))
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         {{ session()->get('error') }}
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
-                          </button>
+                        </button>
                     </div>
                 @endif
-                @if($updateCategory)
+                @if ($updateCategory)
                     @include('livewire.update')
                 @else
                     @include('livewire.create')
@@ -28,6 +28,9 @@
     </div>
     <div class="col-md-12">
         <div class="card">
+            <div class="card-header">
+                <input class="form-control" id="search" type="text" placeholder="Search..">
+            </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table">
@@ -38,19 +41,21 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="TCcible">
                             @if (count($categories) > 0)
                                 @foreach ($categories as $category)
                                     <tr>
                                         <td>
-                                            {{$category->name}}
+                                            {{ $category->name }}
                                         </td>
                                         <td>
-                                            {{$category->description}}
+                                            {{ $category->description }}
                                         </td>
                                         <td>
-                                            <button wire:click="edit({{$category->id}})" class="btn btn-primary btn-sm">Edit</button>
-                                            <button onclick="deleteCategory({{$category->id}})" class="btn btn-danger btn-sm">Delete</button>
+                                            <button wire:click="edit({{ $category->id }})"
+                                                class="btn btn-primary btn-sm">Edit</button>
+                                            <button onclick="deleteCategory({{ $category->id }})"
+                                                class="btn btn-danger btn-sm">Delete</button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -68,9 +73,20 @@
         </div>
     </div>
     <script>
-        function deleteCategory(id){
-            if(confirm("Are you sure to delete this record?"))
-                window.livewire.emit('deleteCategory',id);
+        function deleteCategory(id) {
+            if (confirm("Are you sure to delete this record?"))
+                window.livewire.emit('deleteCategory', id);
         }
+
+        // Filtrage
+
+        $(document).ready(function() {
+            $("#search").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#TCcible tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
     </script>
 </div>

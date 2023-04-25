@@ -43,8 +43,6 @@
                             <col class="col-md-3">
                             <col class="col-md-3">
                         </colgroup>
-
-
                         <thead>
                             <tr>
                                 <th>cref</th>
@@ -101,12 +99,7 @@
             if (confirm("Are you sure to delete this record?"))
                 window.livewire.emit('deleteProduct', id);
         }
-
-
-
-
         // Filtrage
-
         $(document).ready(function() {
             $("#search").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
