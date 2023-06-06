@@ -20,15 +20,18 @@ php artisan key:generate
 #migration
 php artisan migrate 
 
-#generate admin
-php artisan db:seed --class=CreateAdminUserSeeder
-
 
 #add those vars into your env file
 ADMIN_ID=1
 NAME=@yourname
 ADMIN_EMAIL=@youremail
 PWD=@yourpassword
+
+#generate admin
+php artisan db:seed --class=CreateAdminUserSeeder
+
+
+
 # build CSS and JS assets
 npm run dev
 
