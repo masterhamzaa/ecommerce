@@ -1,4 +1,4 @@
-# Laravel Ecommerce project
+## Commerce app example
 
 
 This project runs with Laravel version 10x.
