@@ -32,7 +32,6 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 // Gestion Categories
 Route::get('/categorie/{id}', [MasterController::class, 'Prod'])->name('cat.show');
 Route::get('/Admin/GestionCategories', [MasterController::class, 'gestionCat'])->name("gestioncategories");
-
 Route::get('/', [MasterController::class, 'slash'])->name("home");
 
 

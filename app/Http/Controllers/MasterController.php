@@ -38,7 +38,6 @@ class MasterController extends Controller
     public function adminview()
     {
         if (Auth::id() == 1) {
-
             return view('admin.layouts')->with('admin', 'welcome back Hamza');
         }
         return redirect("login")->withSuccess('Opps! You do not have access');

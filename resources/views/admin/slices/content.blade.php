@@ -1,13 +1,5 @@
-
-
-
- <!-- Main content -->
- <section class="content">
-
+<!-- Main content -->
+<section class="content">
     @include('admin.gestion')
-
-
-
-  </section>
-  <!-- /.content -->
-
+</section>
+<!-- /.content -->
